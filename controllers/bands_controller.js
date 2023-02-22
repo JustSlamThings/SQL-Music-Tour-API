@@ -4,7 +4,7 @@ const bands= require('express').Router();
 const db=require('../models');
 const { Band } = db;
 
-// FIND ALL BANDS
+// FIND ALL BANDS  The Index Route
 bands.get('/', async (req, res) => {
     try {
         const foundBands = await Band.findAll()
@@ -15,7 +15,7 @@ bands.get('/', async (req, res) => {
     }
 })
 
-// FIND A SPECIFIC BAND
+// FIND A SPECIFIC BAND  The Show Route
 bands.get('/:id', async (req, res) => {
     try {
         const foundBand = await Band.findOne({
@@ -27,7 +27,7 @@ bands.get('/:id', async (req, res) => {
     }
 })
 
-// CREATE A BAND
+// CREATE A BAND  The Create Route
 bands.post('/', async (req, res) => {
     try {
         const newBand = await Band.create(req.body)
@@ -40,7 +40,7 @@ bands.post('/', async (req, res) => {
     }
 })
 
-// UPDATE A BAND
+// UPDATE A BAND  The Update Route
 bands.put('/:id', async (req, res) => {
     try {
         const updatedBands = await Band.update(req.body, {
@@ -56,7 +56,7 @@ bands.put('/:id', async (req, res) => {
     }
 })
 
-// DELETE A BAND
+// DELETE A BAND   The Delete Route
 bands.delete('/:id', async (req, res) => {
     try {
         const deletedBands = await Band.destroy({

@@ -1,43 +1,32 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
+'use strict'
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('events', {
-      events_id: {
+      event_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name_id: {
+      name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       date: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       start_time: {
         type: Sequelize.DATE,
-        allowNull: false,      },
+        allowNull: false
+      },
       end_time: {
         type: Sequelize.DATE,
-        allowNull: false,        
-      },
-      stage_id: {
-        type: Sequelize.SMALLINT,
-        allowNull: false,      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        allowNull: false
       }
-    });
+    })
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('events');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('events')
   }
-};
+}
